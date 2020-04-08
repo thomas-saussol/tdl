@@ -32,7 +32,6 @@ if($login != $last_login && $password != $last_password)
 		$_SESSION['password']=$password;
 		echo "Modification réussie";
 	}
-
 }
 else if($login != $last_login)
 {

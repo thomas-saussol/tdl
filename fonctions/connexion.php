@@ -22,7 +22,4 @@ $array_from_result=mysqli_fetch_array($result_req_user);
 	{
 		echo "Login ou mot de passe incorrect";
 	}
-
-
-
 ?>

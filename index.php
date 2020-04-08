@@ -54,7 +54,6 @@ if(!isset($_SESSION['login']))
 else
 {
 ?>
-
 <header>
 	<div id="fond_couleur">
 		<div class="list">

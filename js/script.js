@@ -154,7 +154,6 @@ function ajax(){
 			}
 		});
 }
-
 $(document).ready(function(){
 	 $("body").on("click","#sign_up",function(){
 
@@ -163,7 +162,6 @@ $(document).ready(function(){
 		if(focus == "inactive underlineHover")
 		{
 			inscription_form()
-
 		}
 	});
 

@@ -13,5 +13,4 @@ for($i=0; $i<sizeof($tab); $i++) {
 	    	$json[] = $tab[$i];
 		}
 	 echo json_encode($json);
-
 ?>

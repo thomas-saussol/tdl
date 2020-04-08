@@ -33,5 +33,4 @@ else
 	mysqli_query($base, $insert);
 	echo "Inscrit";
 }
-
 ?>
