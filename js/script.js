@@ -31,6 +31,19 @@ function connexion_form(){
 	$("#password").after('<input type="button" id="log_in" class="fadeIn fourth" value="Se connecter">')
 }
 
+function profil_form(){
+
+	$("#formulaire").remove()
+	$("main").append('<div id="formulaire" class="wrapper fadeInDown"></div>')
+	$("#formulaire").append('<div id="formContent"></div>')
+	$("#formContent").append('<div  id="logo_site" class="fadeIn first"></div>')
+	$("#logo_site").append('<img src="img/logo.png" id="icon" alt="User Icon"/>')
+	$("#logo_site").after('<form></form>')
+	$("form").append('<input type="text" id="login_profil" class="fadeIn second" name="login_profil" placeholder="Login">')
+	$("#login_profil").after('<input type="password" id="password_profil" class="fadeIn third" name="password_profil" placeholder="Password">')
+	$("#password_profil").after('<input type="button" id="update" class="fadeIn fourth" value="Modifier">')
+}
+
 
 function ajax(){
 
@@ -42,8 +55,7 @@ function ajax(){
 
 			success:function(data)
 			{
-				console.log(data)
-				if(data == 1)
+				if(data == "utilisateur existant")
 				{	
 					$("#login_register").val("");
 					$('#password_register').css({"border":"none"})
@@ -54,14 +66,14 @@ function ajax(){
 
 						
 				}
-				else if(data == 2)
+				else if(data == "Login trop court")
 				{
 					$("#login_register").val("");
 					document.getElementById("login_register").placeholder = '*Login trop court'
 					$('#login_register').css({"border":"1px solid #C0392B"})
 					document.getElementById("login_register").className="erreur"
 				}
-				else if(data == 3)
+				else if(data == "Mot de passe trop court")
 				{
 					$("#password_register").val("");
 					$('#login_register').css({"border":"none"})
@@ -69,7 +81,7 @@ function ajax(){
 					$('#password_register').css({"border":"1px solid #C0392B"})
 					document.getElementById("password_register").className="erreur"
 				}
-				else if(data == 4)
+				else if(data == "Mots de passe différents")
 				{
 					$("#password2").val("");
 					$('#login_register').css({"border":"none"})
@@ -77,21 +89,23 @@ function ajax(){
 					$('#password2').css({"border":"1px solid #C0392B"})
 					document.getElementById("password2").className="erreur"
 				}
-				else if(data == 5)
+				else if(data == "Inscrit")
 				{
 					$('#login_register').css({"border":"none"})
 					$('#password_register').css({"border":"none"})
 					$('#password2').css({"border":"none"})
 
 					connexion_form()
+					$("#slogan").after("<p id='log_successful'>Vous êtes inscrit !</p>")
 				}
-				else if( data == 6)	
+				else if( data == "Connecté")	
 				{
 					$("#erreur_log").text("")
 					$('#login').css({"border":"none"})
 					$('#password').css({"border":"none"})
+					window.location.replace("sources/todolist.php");
 				}
-				else if( data == 7)	
+				else if( data == "Login ou mot de passe incorrect")	
 				{
 					$("#login").val("")
 					$("#password").val("")
@@ -100,6 +114,42 @@ function ajax(){
 					$('#password').css({"border":"1px solid #C0392B"})
 					document.getElementById("login").className="erreur"
 					document.getElementById("password").className="erreur"
+				}
+				else if( data == "Login déjà existant")	
+				{
+					$("#login_profil").val("")
+					$('#login_profil').css({"border":"1px solid #C0392B"})
+					document.getElementById("login_profil").placeholder = '*Login déjà existant'
+					document.getElementById("login_profil").className="erreur"
+				}
+				else if( data == "Modification réussie" )	
+				{
+					$("#formulaire").remove()
+				}
+				else if( data == "Veuillez rentrer un mot de passe plus long")	
+				{
+					$("#password_profil").val("")
+					$('#login_profil').css({"border":"none"})
+					$('#password_profil').css({"border":"1px solid #C0392B"})
+					document.getElementById("password_profil").placeholder = '*Mot de passe trop court'
+					document.getElementById("password_profil").className="erreur"
+				}
+				else if(data == "Aucun changement")
+				{
+					$('#login_profil').css({"border":"none"})
+					$('#password_profil').css({"border":"none"})
+				}
+				else if( data == "Déconnecté")	
+				{
+					window.location.reload();
+				}
+				else if(data[0] == "[")
+				{	
+					profil_form()
+					var login = JSON.parse(data)[0]
+					var password = JSON.parse(data)[1]
+					$("#login_profil").val(login)
+					$("#password_profil").val(password)
 				}
 			}
 		});
@@ -127,9 +177,9 @@ $(document).ready(function(){
 		}
 	});
 
-	 // INSCRIPTION
+	// INSCRIPTION
 
-	 $("body").on("click","#register",function(){
+	$("body").on("click","#register",function(){
 
 
 		if($("#login_register").val() !="" && $("#password_register").val() !="" && $("#password2").val() !=""  )
@@ -144,7 +194,9 @@ $(document).ready(function(){
 		}
 	});
 
-	 $("body").on("click","#log_in",function(){
+	// CONNEXION
+
+	$("body").on("click","#log_in",function(){
 
 
 		if($("#login").val() !="" && $("#password").val() !="")
@@ -154,7 +206,43 @@ $(document).ready(function(){
 			
 			url="fonctions/connexion.php"
 			data={login: login, password: password}
+			$("#log_successful").remove()
 			ajax()
 		}
+	});
+
+	// PROFIL
+
+	$("body").on("click","#profil",function(){
+
+		url="fonctions/profil.php"
+		data={}
+		ajax()
+
+		
+	});
+
+	$("body").on("click","#update",function(){
+
+		if($("#login_profil").val() !="" && $("#password_profil").val() !="")
+		{
+			login_profil    = $("#login_profil").val();
+			password_profil = $("#password_profil").val();
+			
+			url="fonctions/profil_update.php"
+			data={login_profil: login_profil, password_profil}
+			ajax()
+		}
+		
+	});
+
+	// DECONNEXION	
+
+	$("body").on("click","#log_out",function(){
+
+		url="fonctions/deconnexion.php"
+		data={}
+		ajax()
+		
 	});
 });

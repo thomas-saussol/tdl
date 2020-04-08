@@ -14,12 +14,13 @@ $array_from_result=mysqli_fetch_array($result_req_user);
 
 	if(password_verify($password, $array_from_result['password'])) 
 	{
-		// $_SESSION['login']=$login;
-		echo "6";
+		$_SESSION['login']=$login;
+		$_SESSION['password']=$password;
+		echo "Connecté";
 	}
 	else
 	{
-		echo "7";
+		echo "Login ou mot de passe incorrect";
 	}
 
 

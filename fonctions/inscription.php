@@ -12,26 +12,26 @@ $req=mysqli_query($base,$sql);
 
 if (mysqli_num_rows($req) > 0)
 {
-	echo "1";
+	echo "utilisateur existant";
 }
 else if(strlen($login_register) < 5)
 {
-	echo "2";
+	echo "Login trop court";
 }
 else if(strlen($password_register) < 8)
 {
-	echo "3";
+	echo "Mot de passe trop court";
 }
 else if($password_register != $password2)
 {
-	echo "4";
+	echo "Mots de passe différents";
 }
 else
 {	
 	$password_register=password_hash($password_register, PASSWORD_BCRYPT, ["cost" => 12]);
 	$insert="INSERT INTO utilisateurs VALUES (NULL, '$login_register', '$password_register')";
 	mysqli_query($base, $insert);
-	echo "5";
+	echo "Inscrit";
 }
 
 ?>

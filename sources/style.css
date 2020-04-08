@@ -16,12 +16,14 @@
 	height: 400px;
 	background-image: url(../img/fond_header.jpg);
 	background-size: cover;
+	text-align: center;
 }
 
 .accueil header .list{
 
 	color: white;
 	text-transform: uppercase;
+	width: 400px;
 
 }
 .accueil header h1{
@@ -42,6 +44,20 @@
 	border-bottom: 3px solid white;
 	height: 27px;
 	cursor: pointer;
+}
+
+.accueil header ul{
+
+	margin-top: 20px;
+	list-style: none;
+	display: flex;
+	justify-content: space-between;
+
+}
+
+.accueil header a{
+
+ color:white;
 }
 
 #fond_couleur{
@@ -325,8 +341,17 @@ input[type=text]:placeholder, input[type="password"]:placeholder  {
  	font-style: italic;
 }
 
+#log_successful{
+
+	margin-top: 20px;
+	text-align: center;
+	font-size: 20px;
+	font-style: italic;
+}
+
 
 /*FORMULAIRE*/
+
 
 footer{
 

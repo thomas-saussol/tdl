@@ -12,11 +12,17 @@
 <body class="accueil">
 
 
+<?php session_start();
+
+if(!isset($_SESSION['login']))
+{
+?>
+
 <header>
 	<div id="fond_couleur">
 		<div class="list">
 			<h1>To do list</h1>
-			<p>Brique par brique vers l'avenir</p>
+			<p id="slogan">Brique par brique vers l'avenir</p>
 		</div>
 	</div>
 </header>
@@ -43,6 +49,34 @@
 	</div>
 </main>
 
+<?php
+}
+else
+{
+?>
+
+<header>
+	<div id="fond_couleur">
+		<div class="list">
+			<h1>To do list</h1>
+			<p id="slogan">Brique par brique vers l'avenir</p>
+			<ul>
+				<li><a href="sources/todolist.php">Ma To Do List</a></li>
+				<li id="profil">Mon profil</li>
+				<li id="log_out">Déconnexion</li>
+			</ul>
+		</div>
+	</div>
+</header>
+
+<main>
+
+</main>
+
+<?php
+}
+?>
+
 <footer>
 	<div id="fond_couleur">
 		<div class="logo_footer">
@@ -52,6 +86,7 @@
 		</div>
 	</div>
 </footer>
+
 
 </body>
 </html>
