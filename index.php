@@ -26,6 +26,7 @@
 	<div id="formulaire" class="wrapper fadeInDown">
   		<div id="formContent">
 		    <!-- Tabs Titles -->
+		    <p id="erreur_log"></p>
 			<h2 id="sign_in" class="active"> Connexion </h2>
 		    <h2 id="sign_up" class="inactive underlineHover">Inscription </h2>
 		    <!-- Icon -->
@@ -35,13 +36,22 @@
 		    <!-- Login Form -->
 		    <form>
 		      <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-		      <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
-		      <input type="button" class="fadeIn fourth" value="Se connecter">
+		      <input type="password" id="password" class="fadeIn third" name="login" placeholder="password">
+		      <input type="button" id="log_in" class="fadeIn fourth" value="Se connecter">
 		    </form>
   		</div>
 	</div>
 </main>
 
+<footer>
+	<div id="fond_couleur">
+		<div class="logo_footer">
+			<img src="img/logo.png" width="70px">
+			<p>To Do List © Adrien Gonzalez </p>
+			<p></p>
+		</div>
+	</div>
+</footer>
 
 </body>
 </html>
