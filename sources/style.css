@@ -1,0 +1,115 @@
+@import  url ( 'https://fonts.googleapis.com/css2?family=Kanit:wght@300;400&family=Roboto+Mono&display=swap' );
+body{
+	background: rgba(255, 255, 255, 0.57);
+	text-align: center;
+	font-family: 'Kanit', sans-serif;
+
+}
+
+.intro {
+	margin: 30px 0px;
+	font-weight: bold;
+}
+
+.container{
+	display: flex;
+	flex-direction: column;
+	margin: 100px;
+background-color: rgba(215, 102, 68, 0.8);
+border-radius: 30px;
+font-size: 30px;
+}
+
+h1 {
+	color: #fff;
+	text-transform: uppercase;
+	font-weight: 800;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	background-color: rgba(62, 64, 59, 0.53);
+	border-radius: 30px;
+
+}
+
+
+p {
+	font-weight: 600;
+}
+
+#first {
+	margin-top: 10px;
+	color: black;
+}
+
+#second {
+	color: #51DF70;
+}
+#third {
+	color: #025F70;
+	margin-bottom: 30px;
+	font-family: 'Kanit', sans-serif;
+
+}
+
+#enter {
+	border: none;
+	padding: 5px 15px;
+	border-radius: 5px;
+	color: rgb(245, 245, 245);
+	background-color: rgb(89, 173, 218);
+	font-weight: normal;
+}
+
+#enter:hover {
+	opacity: 0.8;
+}
+
+ul {
+	text-align: left;
+	margin-top: 20px;
+}
+
+li{
+	list-style: none;
+	padding: 10px 20px;
+	color: #fff;
+	text-transform: capitalize;
+	font-weight: 600;
+	border: 2px solid #f8ca73;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	background: #4EB9cd;
+}
+
+li:hover{
+	background: #76CFE0;
+}
+
+li > button {
+	font-weight: normal;
+	background: none;
+	border: none;
+	float: right;
+	color: #025f70;
+	font-weight: 800;
+}
+
+input {
+	border-radius: 5px;
+	min-width: 65%;
+	padding: 5px;
+	border: none;
+}
+
+.done{
+	background: #51df70 !important;
+	color: #fff;
+}
+
+.done::after{
+
+	content:"\002705";
+}
+
+.delete{
+	display: none;
+}
