@@ -47,16 +47,11 @@
 			<div class="row">
 				<div id="affichage_li" class="listItems col-12">
 					<ul id="taches_en_cours" class="col-12 offset-0 col-sm-8 offset-sm-2">
-
 					</ul>
 				</div>
 			</div>
-
 		</div>
-
-
-
-
+	<div class="liste_taches_finies">
 		<div class="container2">
 			<div class="row">
 				<div class="intro col-12">
@@ -73,7 +68,8 @@
 				</div>
 			</div>
 		</div>
-	</main>
+	</div>
+</main>
 	
 
 	<script type="text/javascript" src="../js/todolist.js"></script>

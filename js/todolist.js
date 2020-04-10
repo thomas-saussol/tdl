@@ -46,10 +46,12 @@ function ajax(){
 			var nbr=0;
 			var tableaux_id=[]
 			var tableaux_tache=[]
+			var tableaux_statut=[]
+			var tableaux_date=[];
+
 			var incrementation_tache=0
 			var incrementation_id=0
-
-			var tableaux_date=[];
+			var incrementation_statut=0
 			var incrementation_date=0;
 
 			for(i=0; i<Object.keys(data).length;i++)
@@ -81,15 +83,21 @@ function ajax(){
 				    	tableaux_date.push(date)
 					}
 					if(j==4)
+					{			  
+					    statut=result[champ]
+					    tableaux_statut.push(statut)
+					}
+					if(j==5)
 					{
 					    id=tableaux_id[incrementation_id]	
 					    tache=tableaux_tache[incrementation_tache]
 					    date=tableaux_date[incrementation_date]
-					    statut=result[champ]
+					    date_fin=result[champ]
 					    createListElement()	
 					    incrementation_id++
 					    incrementation_tache++
 					    incrementation_date++
+					    incrementation_statut++
 					}
 				}
 	   		}   		 	
@@ -120,12 +128,12 @@ function createListElement() {
 	var li = document.createElement("li");
 	li.className = 'affichage_taches';
 	li.id=id
-		        
-	para.innerText = date;  
+
+
+	para.innerText = "Début : "+date;  
 	para2.innerText = tache;  
 	li.appendChild(para);
 	li.appendChild(para2);
-
 	
 	ul.appendChild(li);
 	input.value = "";
@@ -155,9 +163,13 @@ function createListElement() {
 	if(statut==1){
 
 		li.classList.toggle("done");
-		$('#les_taches_finies').append($('#'+id))
+		$('#les_taches_finies').append($('#'+id))				
+		var para3 = document.createElement("P"); 
+		para3.innerText = "Fin : "+date_fin.substr(0,16); 
+		li.appendChild(para3);
+		para2.before(para3)
+		para3.id=id+"date_fin"
 	}
-	
 }
 
 function addListAfterClick() {
@@ -178,7 +190,6 @@ $(document).ready(function(){
 
 		if($("#userInput").val() != "")
 		{
-		
 			tache = input.value
 			data ={tache: tache}
 			ajax()
@@ -195,11 +206,13 @@ $(document).ready(function(){
 		if(id_parent == "taches_en_cours")
 		{
 			$('#les_taches_finies').append($('#'+id))
+			ajax()
 		}
 		else
 		{
 			$('#taches_en_cours').append($('#'+id))
+			$("#"+id+"date_fin").remove()
+			ajax()
 		}
-
 	});
 });

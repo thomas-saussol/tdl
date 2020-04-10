@@ -412,7 +412,8 @@ button:hover{
   background-color: rgba(215, 102, 68, 0.8);
   border-radius: 30px;
   font-size: 25px;
-  min-width: 500px;
+  width: 500px;
+  min-width:600px;
 
 }
 
@@ -423,7 +424,14 @@ button:hover{
   border-radius: 30px;
   font-size: 25px;
   min-width: 500px;
-  height: auto;
+  width: 600px;
+  position: absolute;
+}
+
+.liste_taches_finies{
+  width: 40%;
+  display: flex;
+  justify-content: center;
 }
 
 
@@ -529,6 +537,31 @@ button:hover{
   font-size: 20px;
   height: 230px;
   width: 300px;
+}
+
+@media (max-width: 1200px) {
+  .todolist main {
+    
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .liste_taches_finies{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.container2 {
+  
+  margin: 100px;
+  background-color: grey;
+  border-radius: 30px;
+  font-size: 25px;
+  min-width: 500px;
+  width: 600px;
+  position:inherit
+}
 }
 
 

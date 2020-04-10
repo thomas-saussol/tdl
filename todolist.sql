@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 10 avr. 2020 à 10:02
+-- Généré le :  ven. 10 avr. 2020 à 13:21
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -37,16 +37,17 @@ CREATE TABLE IF NOT EXISTS `todolist` (
   `tache` varchar(100) NOT NULL,
   `date` datetime NOT NULL,
   `finie` int(11) NOT NULL DEFAULT '0',
+  `date_fin` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=154 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=181 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `todolist`
 --
 
-INSERT DELAYED INTO `todolist` (`id`, `id_utilisateur`, `tache`, `date`, `finie`) VALUES
-(131, 12, 'test 1', '2020-04-09 20:27:11', 0),
-(151, 13, 'test 1', '2020-04-10 11:58:02', 0);
+INSERT DELAYED INTO `todolist` (`id`, `id_utilisateur`, `tache`, `date`, `finie`, `date_fin`) VALUES
+(179, 13, 'test', '2020-04-10 15:03:38', 0, NULL),
+(180, 13, 'test2', '2020-04-10 15:03:42', 0, NULL);
 
 -- --------------------------------------------------------
 
