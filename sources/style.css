@@ -382,6 +382,12 @@ footer{
 /*THOMAS*/
 
 
+
+.todolist main{
+
+  display: flex;
+}
+
 .todolist{
   background: rgba(255, 255, 255, 0.57);
   text-align: center;
@@ -394,6 +400,11 @@ footer{
   font-weight: bold;
 }
 
+button:hover{
+
+  cursor: pointer;
+}
+
 .container{
   display: flex;
   flex-direction: column;
@@ -401,7 +412,20 @@ footer{
   background-color: rgba(215, 102, 68, 0.8);
   border-radius: 30px;
   font-size: 25px;
+  min-width: 500px;
+
 }
+
+.container2 {
+  
+  margin: 100px;
+  background-color: grey;
+  border-radius: 30px;
+  font-size: 25px;
+  min-width: 500px;
+  height: auto;
+}
+
 
 .todolist h1 {
   color: #fff;
@@ -506,3 +530,5 @@ footer{
   height: 230px;
   width: 300px;
 }
+
+

@@ -1,10 +1,7 @@
-// SELECT DANS LA BDD LES TACHES 
-
+// SELECT DANS LA BDD DES TACHES 
 
 data ={}
 ajax()
-
-
 
 
 function ajax_tache_finie(){
@@ -14,8 +11,7 @@ $.ajax({
 		url: "../fonctions/tache_finie.php",
 		data: data,
 
-		success:function(data)
-		{
+		success:function(data){
 		}
 	});
 }
@@ -29,9 +25,7 @@ function ajax_delete_element(){
 		url: "../fonctions/delete_tache.php",
 		data: data,
 
-		success:function(data)
-		{
-
+		success:function(data){
 		}
 	});
 }
@@ -48,65 +42,57 @@ function ajax(){
 		 
 		success:function(data)
 		{	
-				$(".affichage_taches").remove()
-				var nbr=0;
-				var tableaux_id=[]
-				var tableaux_tache=[]
-				var incrementation_tache=0
-				var incrementation_id=0
+			$(".affichage_taches").remove()
+			var nbr=0;
+			var tableaux_id=[]
+			var tableaux_tache=[]
+			var incrementation_tache=0
+			var incrementation_id=0
 
-				var tableaux_date=[];
-				var incrementation_date=0;
+			var tableaux_date=[];
+			var incrementation_date=0;
 
-				for(i=0; i<Object.keys(data).length;i++)
+			for(i=0; i<Object.keys(data).length;i++)
+			{
+				if(data[i] =="{")
 				{
-					if(data[i] =="{")
+					nbr++;
+				}
+			}	
+			for(i=0; i < nbr; i++)
+		   	{
+			    var result = JSON.parse(data)[i];  
+				for(j=0;j <Object.keys(result).length; j++  )
+				{
+				   	var champ = Object.keys(result)[j];
+				    if(j==0)
+				    {
+				    	id=result[champ]
+				    	tableaux_id.push(id)
+				    }
+					if(j==2)
+					{	
+					    tache=result[champ]
+				    	tableaux_tache.push(tache)
+					}
+					if(j==3)
 					{
-					    nbr++;
+					    date=result[champ].substr(0,16)
+				    	tableaux_date.push(date)
+					}
+					if(j==4)
+					{
+					    id=tableaux_id[incrementation_id]	
+					    tache=tableaux_tache[incrementation_tache]
+					    date=tableaux_date[incrementation_date]
+					    statut=result[champ]
+					    createListElement()	
+					    incrementation_id++
+					    incrementation_tache++
+					    incrementation_date++
 					}
 				}
-
-
-				
-				for(i=0; i < nbr; i++)
-		   		{
-			        var result = JSON.parse(data)[i];  
-
-				    for(j=0;j <Object.keys(result).length; j++  )
-				    {
-				    	var champ = Object.keys(result)[j];
-				    	if(j==0)
-				    	{
-				    		id=result[champ]
-				    		tableaux_id.push(id)
-				    	}
-					    if(j==2)
-					    {	
-					    	tache=result[champ]
-				    		tableaux_tache.push(tache)
-
-					    }
-					    if(j==3)
-					    {
-					    	date=result[champ].substr(0,16)
-				    		tableaux_date.push(date)
-					    }
-					    if(j==4)
-					    {
-					    	// console.log(result[champ])
-					    	id=tableaux_id[incrementation_id]	
-					    	tache=tableaux_tache[incrementation_tache]
-					    	date=tableaux_date[incrementation_date]
-					    	statut=result[champ]
-					    	createListElement()	
-					    	incrementation_id++
-					    	incrementation_tache++
-					    	incrementation_date++
-					    }
-					}
-	   		 	}
-	   		 	
-	   		 	
+	   		}   		 	
 		}
 	});
 }
@@ -128,20 +114,13 @@ function inputLength() {
 
 function createListElement() {
 
-// APPEL AJAX POUR AJOUT DANS LA BDD
-	
-	
+		
 	var para = document.createElement("P"); 
 	var para2 = document.createElement("P");         
 	var li = document.createElement("li");
 	li.className = 'affichage_taches';
 	li.id=id
-
-if(statut==1)
-{
-li.classList.toggle("done");
-}	        
-   
+		        
 	para.innerText = date;  
 	para2.innerText = tache;  
 	li.appendChild(para);
@@ -151,21 +130,13 @@ li.classList.toggle("done");
 	ul.appendChild(li);
 	input.value = "";
 
-
 	function crossOut(){
-		
-	
+
 		var id_tache = li.id;
 		data={id_tache: id_tache}
 		ajax_tache_finie()
-	
 		li.classList.toggle("done");
-		
 	}
-
-
-
-
 
 	li.addEventListener("click", crossOut);
 	var dBtn = document.createElement("button");
@@ -177,10 +148,16 @@ li.classList.toggle("done");
 		
 		var id_tache = li.id;
 		data={id_tache: id_tache}
-
 		ajax_delete_element()
 		li.classList.add("delete");
 	}
+
+	if(statut==1){
+
+		li.classList.toggle("done");
+		$('#les_taches_finies').append($('#'+id))
+	}
+	
 }
 
 function addListAfterClick() {
@@ -207,5 +184,22 @@ $(document).ready(function(){
 			ajax()
 		}
 	});
-});
 
+	// DEPLACER LA TACHE DANS LES TACHES FINIES
+
+	$("body").on("click","li",function(){
+		
+		id=this.id
+		id_parent=$("#"+id).parent().attr('id')
+
+		if(id_parent == "taches_en_cours")
+		{
+			$('#les_taches_finies').append($('#'+id))
+		}
+		else
+		{
+			$('#taches_en_cours').append($('#'+id))
+		}
+
+	});
+});

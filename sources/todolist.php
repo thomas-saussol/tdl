@@ -15,8 +15,8 @@
 		<title>To Do List</title>
 	</head>
 
-	<body class="todolist">
-
+<body class="todolist">
+	<main>
 		<div class="container">
 			<div class="row">
 				<div class="intro col-12">
@@ -46,14 +46,37 @@
 
 			<div class="row">
 				<div id="affichage_li" class="listItems col-12">
-					<ul class="col-12 offset-0 col-sm-8 offset-sm-2">
+					<ul id="taches_en_cours" class="col-12 offset-0 col-sm-8 offset-sm-2">
 
 					</ul>
 				</div>
 			</div>
 
 		</div>
-		<script type="text/javascript" src="../js/todolist.js"></script>
-	</body>
+
+
+
+
+		<div class="container2">
+			<div class="row">
+				<div class="intro col-12">
+					<h1>Tâches finies</h1>
+					<div>
+						<div class="border1"></div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div id="affichage_tache_finie" class="listItems col-12">
+					<ul id="les_taches_finies" class="col-12 offset-0 col-sm-8 offset-sm-2">
+					</ul>
+				</div>
+			</div>
+		</div>
+	</main>
+	
+
+	<script type="text/javascript" src="../js/todolist.js"></script>
+</body>
 
 </html>
