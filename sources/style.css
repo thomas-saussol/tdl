@@ -382,10 +382,10 @@ footer{
 /*THOMAS*/
 
 
-
 .todolist main{
 
   display: flex;
+
 }
 
 .todolist{
@@ -409,7 +409,7 @@ button:hover{
   display: flex;
   flex-direction: column;
   margin: 100px;
-  background-color: rgba(215, 102, 68, 0.8);
+  background-color: rgba(215, 102, 68, 0.88);
   border-radius: 30px;
   font-size: 25px;
   width: 500px;
@@ -420,7 +420,7 @@ button:hover{
 .container2 {
   
   margin: 100px;
-  background-color: grey;
+   background-color: rgba(215, 102, 68, 0.88);
   border-radius: 30px;
   font-size: 25px;
   min-width: 500px;
@@ -435,19 +435,22 @@ button:hover{
 }
 
 
-.todolist h1 {
+.container h1, .container2 h1 {
   color: #fff;
   text-transform: uppercase;
   font-weight: 800;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   background-color: rgba(62, 64, 59, 0.53);
   border-radius: 30px;
+  font-size: 25px;
 
 }
 
 
-.todolist p {
+
+.container p, .container2 p {
   font-weight: 600;
+  font-size: 20px;
 }
 
 #first {
@@ -467,7 +470,7 @@ button:hover{
 
 #enter {
   border: none;
-  padding: 5px 15px;
+  padding: 0px 5px;
   border-radius: 5px;
   color: rgb(245, 245, 245);
   background-color: rgb(89, 173, 218);
@@ -483,7 +486,7 @@ button:hover{
   margin-top: 20px;
 }
 
-.todolist li{
+.container li, .container2 li {
   list-style: none;
   padding: 10px 20px;
   color: #fff;
@@ -495,11 +498,11 @@ button:hover{
   background: #4EB9cd;
 }
 
-.todolist li:hover{
+.container li:hover, .container2 li:hover{
   background: #76CFE0;
 }
 
-.todolist li > button {
+.container li > button, .container2 li > button  {
   font-weight: normal;
   background: none;
   border: none;
@@ -534,9 +537,28 @@ button:hover{
 .affichage_taches{
 
   word-break: break-word;
-  font-size: 20px;
-  height: 230px;
-  width: 300px;
+  font-size: 15px;
+  height: 200px;
+  width: 280px;
+}
+
+.affichage_taches p{
+
+font-size: 15px;
+}
+
+#les_taches_finies{
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#taches_en_cours{
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 @media (max-width: 1200px) {
