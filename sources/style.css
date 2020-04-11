@@ -597,6 +597,7 @@ font-size: 15px;
   padding: 5px;
   border: none;
   width: 200px;
+  height: 34px;
 }
 
 #ajout_user{
@@ -679,11 +680,36 @@ font-size: 15px;
   background-color: rgba(215, 102, 68, 0.88);
   width: 100%;
 }
- .option_acces{
+.option_acces{
 
   margin-top: 10px;
   padding: 10px;
- }
+  display: flex;
+  justify-content: space-between;
+  width: 380px;
+  flex-wrap: wrap;
+}
+
+
+@media (max-width: 893px) {
+
+.option_acces{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+
+}
+
+#result_access{
+
+  color: white; 
+  text-shadow: black 0.1em 0.1em 0.2em
+}
 
 .lien{
 

@@ -37,7 +37,6 @@ if(!isset($_SESSION['login']))
 			<div id="result_add_user"></div>
 		</div>
 		<div class="option_acces">			
-			<select id="user_acces_delete"></select>
 			<button id="delete">Supprimer les droits</button>
 		</div>
 

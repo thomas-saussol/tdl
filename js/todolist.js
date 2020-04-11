@@ -30,7 +30,8 @@ $.ajax({
 
 		success:function(data){	
 
-			$("#list").remove()
+			$("#user_acces_delete").remove()
+			$("#delete").before("<select id='user_acces_delete'></select>")
 			var nbr_users_acces=0
 			for(i=0; i<Object.keys(data).length;i++)
 			{
@@ -45,7 +46,7 @@ $.ajax({
 				for(j=0;j <Object.keys(result).length; j++  )
 				{
 				   	var champ = Object.keys(result)[j];
-				  	$("#user_acces_delete").append("<option id='list'>"+result[champ]+"</option>")
+				  	$("#user_acces_delete").append("<option>"+result[champ]+"</option>")
 				}
 	   		}  		
 		}
@@ -98,7 +99,7 @@ $.ajax({
 				  document.getElementById('result_access').innerHTML = "";
 				},3000);
 			}
-				ajax_list_of_users_acces()	
+			ajax_list_of_users_acces()	
 		}
 	});
 }
@@ -330,8 +331,8 @@ $(document).ready(function(){
 
 	$("body").on("click","#delete",function(){
 
-		$("#result_access").remove();
 		var user_acces_delete=document.getElementById('user_acces_delete').value
+		console.log(user_acces_delete)
 		data={user_acces_delete: user_acces_delete}
 		ajax_add_users_acces()
 	});
