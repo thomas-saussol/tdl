@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 10 avr. 2020 à 13:21
+-- Généré le :  sam. 11 avr. 2020 à 12:12
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -27,6 +27,20 @@ USE `todolist`;
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `acces`
+--
+
+DROP TABLE IF EXISTS `acces`;
+CREATE TABLE IF NOT EXISTS `acces` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_utilisateur` int(11) NOT NULL,
+  `id_utilisateur_acces` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=126 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `todolist`
 --
 
@@ -39,15 +53,15 @@ CREATE TABLE IF NOT EXISTS `todolist` (
   `finie` int(11) NOT NULL DEFAULT '0',
   `date_fin` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=181 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=220 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `todolist`
 --
 
 INSERT DELAYED INTO `todolist` (`id`, `id_utilisateur`, `tache`, `date`, `finie`, `date_fin`) VALUES
-(179, 13, 'test', '2020-04-10 15:03:38', 0, NULL),
-(180, 13, 'test2', '2020-04-10 15:03:42', 0, NULL);
+(193, 14, 'CA MARCHE OU PAS ?', '2020-04-10 21:05:18', 0, NULL),
+(194, 14, 'test', '2020-04-10 21:05:54', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -61,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `login` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `utilisateurs`
@@ -69,7 +83,8 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
 
 INSERT DELAYED INTO `utilisateurs` (`id`, `login`, `password`) VALUES
 (12, 'Walken99', '$2y$12$mdboCpBngibR31UGOvN.feAlWhZBzZczIjsGyGAUiBcD2iDUjhXa2'),
-(13, 'adrien', '$2y$12$qEQr8f1.Y93waQADQ7EkH.XmiIis9XHkT7DxaaPAISHiY1JIjdNXu');
+(13, 'adrien', '$2y$12$qEQr8f1.Y93waQADQ7EkH.XmiIis9XHkT7DxaaPAISHiY1JIjdNXu'),
+(14, 'Firefou', '$2y$12$gBYfmMrFI2GENLsHpOf0VuIjO0Riz6e4.1dRB.Qk0xtl2SeXCBo..');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

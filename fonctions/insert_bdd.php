@@ -11,6 +11,8 @@ $result_user=mysqli_query($base, $req_user);
 $id_user=mysqli_fetch_array($result_user);
 $id=$id_user['id'];
 
+
+
 if(isset($_POST['finie']))
 {
 	echo "1";
@@ -18,6 +20,11 @@ if(isset($_POST['finie']))
 
 if(isset($_POST['tache']))
 {
+	$user_tache=$_POST['user_tache'];
+	$req_user_tache="SELECT id FROM utilisateurs WHERE login='$user_tache'";
+	$result_user_tache=mysqli_query($base, $req_user_tache);
+	$id_user_tache=mysqli_fetch_array($result_user_tache);
+	$id_user_tache=$id_user_tache['id'];
 	// DATE
 	date_default_timezone_set('Europe/Paris');
 	$now = new DateTime();
@@ -26,7 +33,7 @@ if(isset($_POST['tache']))
 	// NOM DE LA TACHE
 	$tache=$_POST['tache'];
 
-	$insert_tache="INSERT INTO todolist (id_utilisateur, tache, `date`) VALUES ('$id', '$tache','$date')";
+	$insert_tache="INSERT INTO todolist (id_utilisateur, tache, `date`) VALUES ('$id_user_tache', '$tache','$date')";
 	mysqli_query($base,$insert_tache);
 }
 

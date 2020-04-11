@@ -1,3 +1,11 @@
+<?php session_start();
+
+if(!isset($_SESSION['login']))
+{
+	header('Location: ../index.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,8 +25,27 @@
 
 <body class="todolist">
 
+<header>
+	<div class="lien">
+		<div><a href="../"><img width="50px" src="../img/home.png"></a></div>
+		<div id="log_out"><img width="50px" src="../img/log_out.png"></div>
+	</div>
+	<div class="option">
+		<div>
+			<input type="text" name="user" id="user_name">
+			<button id="ajout_user">Donner les droits d'ajout</button>
+			<div id="result_add_user"></div>
+		</div>
+		<div class="option_acces">			
+			<select id="user_acces_delete"></select>
+			<button id="delete">Supprimer les droits</button>
+		</div>
 
-	<main>
+	</div>
+</header>
+	
+
+	<section>
 		<div class="container">
 			<div class="row">
 				<div class="intro col-12">
@@ -27,6 +54,16 @@
 						<div class="border1"></div>
 					</div>
 				</div>
+			</div>
+			<div class="list_users">	
+				<div class="row">
+					<div class="helpText col-12">
+						<p id="third">Utilisateur qui recevra la tache :</p>
+					</div>
+				</div>
+				<select id="user_acces">
+					<option id="user_log_on"><?php echo $_SESSION['login'];?></option>
+				</select>
 			</div>
 
 			<div class="row">
@@ -71,10 +108,7 @@
 			</div>
 		</div>
 	</div>
-</main>
-
-	
-
+</section>
 	<script type="text/javascript" src="../js/todolist.js"></script>
 </body>
 

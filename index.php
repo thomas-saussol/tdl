@@ -27,7 +27,6 @@ if(!isset($_SESSION['login']))
 	</div>
 </header>
 
-
 <main>
 	<div id="formulaire" class="wrapper fadeInDown">
   		<div id="formContent">
