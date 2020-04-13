@@ -1,58 +1,62 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400&family=Roboto+Mono&display=swap');
 
+body{
+  min-width: 520px;
+}
+
 *{
-	padding: 0;
-	margin: 0;
-	font-family: 'Kanit', sans-serif;
-	box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Kanit', sans-serif;
+  box-sizing: border-box;
 }
 
 
 
 .accueil header{
 
-	display: flex;
-	justify-content: center;
-	width: 100%;
-	height: 400px;
-	background-image: url(../img/fond_header.jpg);
-	background-size: cover;
-	text-align: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 400px;
+  background-image: url(../img/fond_header.jpg);
+  background-size: cover;
+  text-align: center;
 }
 
 .accueil header .list{
 
-	color: white;
-	text-transform: uppercase;
-	width: 400px;
+  color: white;
+  text-transform: uppercase;
+  width: 400px;
 
 }
 .accueil header h1{
 
-	text-align: center;
-	font-size: 30px;
-	margin-top: 80px;
+  text-align: center;
+  font-size: 30px;
+  margin-top: 80px;
 }
 
 
 .accueil header li{
 
-	transition: 0.1s;
+  transition: 0.1s;
 }
 .accueil header li:hover{
 
-	color: white;
-	border-bottom: 3px solid white;
-	height: 27px;
-	cursor: pointer;
+  color: white;
+  border-bottom: 3px solid white;
+  height: 27px;
+  cursor: pointer;
 }
 
 .accueil header ul{
 
-	margin-top: 20px;
-	list-style: none;
-	display: flex;
-	justify-content: space-between;
+  margin-top: 20px;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
 
 }
 
@@ -63,11 +67,11 @@
 
 #fond_couleur{
 
-	display: flex;
-	justify-content: center;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(255, 100, 118, 0.6);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 100, 118, 0.6);
 }
 
 
@@ -336,20 +340,20 @@ input[type=text]:placeholder, input[type="password"]:placeholder  {
 
 #erreur_log{
 
-	position: absolute;
-  	width: 100%;
-  	display: flex;
-  	justify-content: center;
-  	color: #C0392B;
- 	font-style: italic;
+  position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: #C0392B;
+  font-style: italic;
 }
 
 #log_successful{
 
-	margin-top: 20px;
-	text-align: center;
-	font-size: 20px;
-	font-style: italic;
+  margin-top: 20px;
+  text-align: center;
+  font-size: 20px;
+  font-style: italic;
 }
 
 
@@ -358,28 +362,28 @@ input[type=text]:placeholder, input[type="password"]:placeholder  {
 
 footer{
 
-	margin-top: 500px;
-	height: 100px;
-	width: 100%;
-	background-image: url(../img/fond_footer.jpg);
-	background-size: cover;
+  margin-top: 500px;
+  height: 100px;
+  width: 100%;
+  background-image: url(../img/fond_footer.jpg);
+  background-size: cover;
 }
 
 .logo_footer{
 
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 10px;
-	
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  
 
 }
 
 .logo_footer p{
 
-	color: white;
-}	
+  color: white;
+} 
 
 
 
@@ -389,6 +393,7 @@ footer{
 .todolist section{
 
   display: flex;
+  justify-content: center;
 }
 
 .todolist{
@@ -417,8 +422,7 @@ button:hover{
   background-color: rgba(215, 102, 68, 0.88);
   border-radius: 30px;
   font-size: 25px;
-  width: 500px;
-  min-width:600px;
+  min-width: 400px;
 
 }
 
@@ -429,7 +433,6 @@ button:hover{
   border-radius: 30px;
   font-size: 25px;
   min-width: 500px;
-  width: 600px;
   position: absolute;
 }
 
@@ -573,7 +576,7 @@ font-size: 15px;
     flex-direction: column;
     height: 100%;
   }
-  .liste_taches_finies{
+  .liste_taches_finies, .liste_taches_en_cours{
   width: 100%;
   display: flex;
   justify-content: center;
@@ -584,8 +587,7 @@ font-size: 15px;
   margin: 100px;
   border-radius: 30px;
   font-size: 25px;
-  min-width: 500px;
-  width: 600px;
+  min-width: 400px;
   position:inherit
 }
 }
@@ -652,6 +654,12 @@ font-size: 15px;
   width: 800px;
 }
 
+.lien{
+
+  display: flex;
+  align-items: center;
+}
+
 .todolist .lien div:hover{
 
   cursor: pointer;
@@ -702,6 +710,10 @@ font-size: 15px;
 
 }
 
+.container{
+  display: flex;
+  justify-content: center;
+
 
 }
 
@@ -716,6 +728,16 @@ font-size: 15px;
   display: flex;
   align-items: center;
 }
+  
+@media (max-width: 500px) {
 
+.option{
 
+  display: flex;
+  flex-direction: column;
+  }
+#result_add_user{
 
+  margin-top: -10px;
+}
+}

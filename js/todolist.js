@@ -96,7 +96,7 @@ $.ajax({
 				$("#result_access").remove();
 				$("#result_add_user").append("<p id='result_access'>"+data+"</p>");	
 				setTimeout(function() {
-				  document.getElementById('result_access').innerHTML = "";
+				  $("#result_access").remove();
 				},3000);
 			}
 			ajax_list_of_users_acces()	

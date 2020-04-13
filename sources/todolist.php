@@ -45,6 +45,7 @@ if(!isset($_SESSION['login']))
 	
 
 	<section>
+		<div class="liste_taches_en_cours">
 		<div class="container">
 			<div class="row">
 				<div class="intro col-12">
@@ -89,6 +90,7 @@ if(!isset($_SESSION['login']))
 				</div>
 			</div>
 		</div>
+	</div>
 	<div class="liste_taches_finies">
 		<div class="container2">
 			<div class="row">
