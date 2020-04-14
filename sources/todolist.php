@@ -32,7 +32,7 @@ if(!isset($_SESSION['login']))
 	</div>
 	<div class="option">
 		<div>
-			<input type="text" name="user" id="user_name">
+			<input type="text" placeholder="Login" name="user" id="user_name">
 			<button id="ajout_user">Donner les droits d'ajout</button>
 			<div id="result_add_user"></div>
 		</div>

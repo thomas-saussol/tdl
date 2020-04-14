@@ -145,16 +145,7 @@ function ajax(){
 		success:function(data)
 		{	
 			$(".affichage_taches").remove()
-			var nbr=0;
-			var tableaux_id=[]
-			var tableaux_tache=[]
-			var tableaux_statut=[]
-			var tableaux_date=[];
-
-			var incrementation_tache=0
-			var incrementation_id=0
-			var incrementation_statut=0
-			var incrementation_date=0;
+			var nbr=0
 
 			for(i=0; i<Object.keys(data).length;i++)
 			{
@@ -172,37 +163,26 @@ function ajax(){
 				    if(j==0)
 				    {
 				    	id=result[champ]
-				    	tableaux_id.push(id)
 				    }
 					if(j==2)
 					{	
 					    tache=result[champ]
-				    	tableaux_tache.push(tache)
 					}
 					if(j==3)
 					{
 					    date=result[champ].substr(0,16)
-				    	tableaux_date.push(date)
 					}
 					if(j==4)
-					{			  
+					{		
 					    statut=result[champ]
-					    tableaux_statut.push(statut)
 					}
 					if(j==5)
 					{
-					    id=tableaux_id[incrementation_id]	
-					    tache=tableaux_tache[incrementation_tache]
-					    date=tableaux_date[incrementation_date]
 					    date_fin=result[champ]
-					    createListElement()	
-					    incrementation_id++
-					    incrementation_tache++
-					    incrementation_date++
-					    incrementation_statut++
-					}
+						createListElement()
+					}	
 				}
-	   		}   		 	
+	   		}  
 		}
 	});
 }
@@ -303,20 +283,20 @@ $(document).ready(function(){
 
 	$("body").on("click","li",function(){
 		
+		
 		id=this.id
 		id_parent=$("#"+id).parent().attr('id')
-
+		
 		if(id_parent == "taches_en_cours")
 		{
 			$('#les_taches_finies').append($('#'+id))
-			ajax()
 		}
 		else
 		{
 			$('#taches_en_cours').append($('#'+id))
 			$("#"+id+"date_fin").remove()
-			ajax()
 		}
+		ajax()
 	});
 	$("body").on("click","#ajout_user",function(){
 

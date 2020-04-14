@@ -9,7 +9,7 @@ function inscription_form(){
 	$("#logo_site").append('<img src="img/logo.png" id="icon" alt="User Icon"/>')
 	$("#logo_site").after('<form></form>')
 	$("form").append('<input type="text" id="login_register" class="fadeIn second" name="login_register" placeholder="Login">')
-	$("#login_register").after('<input type="password" id="password_register" class="fadeIn third" name="password_register" placeholder="Password">')
+	$("#login_register").after('<input type="password" id="password_register" class="fadeIn third" name="password_register" placeholder="Password (8 caractères minimum)">')
 	$("#password_register").after('<input type="password" id="password2" class="fadeIn third" name="password2" placeholder="Confirm password">')
 	$("#password2").after('<input type="button" id="register" class="fadeIn fourth" value="Créer un compte">')
 }
